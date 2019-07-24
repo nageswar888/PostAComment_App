@@ -1,0 +1,121 @@
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-3"><h3>Posts</h3></div>
+    <div class="col-md-1">
+      <div></div>
+    </div>
+    <div class="col-md-3">
+      <div><button type="button" class="btn" id="id1" data-toggle="modal" data-target="#myModal">
+        <i class="far fa-clipboard"></i>&nbsp;<b>Add Post</b>
+      </button>
+
+        <div class="dropdown">
+          <div *ngIf="loggedUser">
+            <p class="dropbtn col-md-1"><b>{{loggedUser[0].firstName}}</b></p></div>
+          <div class="dropdown-content">
+            <button class="btn btn-link" (click)="navigateToProfile()">Profile</button><br>
+            <button class="btn btn-link" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <br><div id="filter"><b>Filters</b></div>
+      <div><input type="text" aria-label="Search" [(ngModel)]="SearchByPost" (input)="search('post')" placeholder=" search by post"></div><br>
+      <div><input type="text" aria-label="Search" [(ngModel)]="SearchByUser"  (input)="search('user')" placeholder=" search by user"></div><br>
+      <div><input type="text" aria-label="Search" [(ngModel)]="SearchByTitle" (input)="search('title')" placeholder=" search by title"></div><br>
+      <!--
+            <div><input type="date" aria-label="Search" [(ngModel)]="Search" (input)="search()" placeholder=" search by date"></div>
+      -->
+    </div>
+
+    <div class="col-md-10">
+      <div class="container">
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Add Post</h4>
+                <button type="button" class="close" (click)="clearingForm()" data-dismiss="modal">&times;</button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="container">
+                  <div class="alert alert-success" *ngIf="alert">
+                    <i class="far fa-thumbs-up"></i> Successfully added the post!
+                  </div>
+                </div>
+
+                <form [formGroup]="complexForm" (ngSubmit)="submit(complexForm.value)">
+                  <div class="form-group">
+                    <input type="text" formControlName="postedBy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.postedBy.errors }" placeholder="User" />
+                    <div *ngIf="submitted && !!f.postedBy.errors" class="invalid-feedback">
+                      <div *ngIf="!!f.postedBy.errors.required">User is required</div>
+                      <div *ngIf="!!f.postedBy.errors.pattern">User must be valid</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" placeholder="Enter Title" >
+                    <div *ngIf="submitted && !!f.title.errors" class="invalid-feedback">
+                      <div *ngIf="!!f.title.errors.required">title is required</div>
+                      <div *ngIf="!!f.title.errors.pattern">title is not valid</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <textarea formControlName="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.text.errors }" placeholder="Enter Post"></textarea>
+                    <div *ngIf="submitted && !!f.text.errors" class="invalid-feedback">
+                      <div *ngIf="!!f.text.errors.required">post is required</div>
+                      <div *ngIf="!!f.text.errors.pattern">post is not valid</div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary" >Add</button>
+                </form>
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <!--
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" >Close modal</button>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--posts-->
+      <div class="col-md-4"></div>
+      <div *ngIf="postings">
+        <div *ngFor="let post of postings | paginate: {itemsPerPage: itemsPPage, currentPage: pageno, totalItems:total}"><hr>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10"><b>{{post.postedBy}}</b>
+              <!--
+                      <a [routerLink]="['/comments-likes', post.id]"><div id="post_size">{{post.text}}</div></a>
+              -->
+              <div><span id="post" (click)="navigate(post.id)">{{post.title}}</span></div>
+            </div>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8">
+            <div id="message" *ngIf="(postings | filterBy: userFilter).length === 0">No matching post found</div><br>
+            <div id="pagination"><pagination-controls (pageChange)="getPagination($event)"></pagination-controls></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

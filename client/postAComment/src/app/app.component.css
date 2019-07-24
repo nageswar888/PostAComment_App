@@ -1,0 +1,12 @@
+.navbar-custom {
+  background: linear-gradient(to top, #ff9966 0%, #99ffcc 100%);
+}
+
+#footer{
+  background: linear-gradient(to top, #ff9966 0%, #99ffcc 100%);
+  position: fixed;
+  left: 0;
+  bottom: 0%;
+  width: 100%;
+  text-align: center;
+}

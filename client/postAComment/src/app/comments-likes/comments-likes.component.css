@@ -1,0 +1,37 @@
+
+strong{
+  color: #007bff;
+}
+
+#date_color{
+  color: gray;
+}
+
+#post_color{
+  color: #007bff;
+}
+
+.jumbotron{
+  padding: 3%;
+}
+
+#posted_by{
+  color: darkgoldenrod;
+}
+
+.text-color{
+  color: rebeccapurple;
+}
+
+#title-color
+{
+  color: midnightblue;
+}
+
+.focusclass:focus{
+  box-shadow: none !important;
+}
+pagination-controls:focus{
+  box-shadow: none !important;
+
+}

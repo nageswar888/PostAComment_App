@@ -1,0 +1,17 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "PAC",
+    "username": "nag",
+    "userEmail": "knageswar888@gmail.com",
+    "stack": "server",
+    "repoHostUrl": "github.com",
+    "userNameSpace": "nag",
+    "client": "",
+    "server": "node",
+    "nodeWebFrameworkServer": "express",
+    "transpilerServer": "babel",
+    "secure": false,
+    "testsSeparated": true,
+    "boilerplate": true
+  }
+}

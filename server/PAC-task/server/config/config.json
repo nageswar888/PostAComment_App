@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "PAC",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "ygckswpmrfgamm",
+    "password": "a382548e3d0d65d72fa3b2620005f670a8d17c6189c32eed6fca740cabd8d435",
+    "database": "d26ngsgt8gtc52",
+    "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "Port" : "5432",
+    "dialectOptions": {
+      "ssl": true
+    }
+
+  }
+}

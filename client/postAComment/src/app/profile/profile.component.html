@@ -1,0 +1,29 @@
+
+<div class="container">
+  <div *ngIf="loggedUser">
+    Hello Mr! <h3>{{loggedUser[0].firstName}}&nbsp;{{loggedUser[0].lastName}}</h3>
+  </div>
+  <p>
+    Your profile is
+  </p>
+  <div *ngIf="loggedUser">
+    <table class="table table-bordered table-dark ">
+      <tr>
+        <th>First Name</th>
+        <td>{{loggedUser[0].firstName}}</td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td>{{loggedUser[0].lastName}}</td>
+      </tr>
+      <tr>
+        <th>Phone Number</th>
+        <td>{{loggedUser[0].phone}}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{loggedUser[0].email}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

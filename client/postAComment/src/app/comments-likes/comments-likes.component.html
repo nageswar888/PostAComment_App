@@ -1,0 +1,103 @@
+
+<div class="jumbotron jumbotron-fluid  padd">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <div class="row" >
+          <div class="col-md-12">
+            <div *ngIf="postings">
+              <div><small><i>posted by- </i></small><b id="posted_by">{{postings[0].postedBy}}</b></div>
+              <div><small><i>title- </i></small><b id="title-color">{{postings[0].title}}</b></div>
+              <div>{{postings[0].createdAt|date:'short'}}</div>
+              <div id="post_color">&emsp;{{postings[0].text}}</div>
+            </div>
+            <div>
+              <button type="button"  class="btn text-color focusclass" (click)="postLikes()"><i class="far fa-thumbs-up" ></i>&nbsp;<span *ngIf="likes">{{likes.length}}</span></button>&nbsp;
+              <button type="button" class="btn text-color focusclass" data-toggle="modal" data-target="#myModal" >
+                <i class="far fa-comment-alt"></i> Add Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Add Comment</h4>
+            <button type="button" class="close" (click)="clearingForm()" data-dismiss="modal">&times;</button>
+            <br>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="container">
+              <div class="alert alert-success" *ngIf="alert">
+                <i class="far fa-thumbs-up"></i> Successfully added the comment!
+              </div>
+            </div>
+
+            <form [formGroup]="complexForm" (ngSubmit)="submit(complexForm.value)">
+              <div class="form-group">
+                <input type="text" formControlName="commentedBy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.commentedBy.errors }" placeholder="User"/>
+                <div *ngIf="submitted && !!f.commentedBy.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.commentedBy.errors.required">User is required</div>
+                  <div *ngIf="!!f.commentedBy.errors.pattern">User must be valid</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <textarea type="text" formControlName="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.text.errors }" placeholder="Enter comment"></textarea>
+                <div *ngIf="submitted && !!f.text.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.text.errors.required">text is required</div>
+                  <div *ngIf="!!f.text.errors.pattern">text is not valid</div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <!--
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close modal</button>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-15"><b>Comments</b>
+      </div>
+    </div>
+    <div *ngFor="let comment of comments | paginate: { itemsPerPage: 2, currentPage: p }"><hr>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11"><p><b>{{comment.commentedBy}}</b></p></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-9">{{comment.text}}</div>
+        <div class="col-md-2" id="date_color">{{comment.createdAt|date}}</div>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
