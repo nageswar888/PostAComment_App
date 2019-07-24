@@ -11,5 +11,6 @@ export default class Routes {
      userRoutes.init(router);
 
      app.use("/", router);
+     console.log("hello")
    }
 }

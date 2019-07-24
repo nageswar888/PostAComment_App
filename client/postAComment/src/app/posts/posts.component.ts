@@ -100,7 +100,6 @@ export class PostsComponent implements OnInit {
   }
 
   createPost(formdata){
-    this.complexForm.reset();
     let user: any;
     this.service.createPost(formdata).subscribe(data=>{
       user = data;

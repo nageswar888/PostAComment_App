@@ -13,7 +13,6 @@ RoutesConfig.init(app);
 Routes.init(app, express.Router());
 
 http.createServer(app)
-  .listen(PORT, '192.168.0.136')
     .listen(PORT, () => {
       console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
       console.log(`enviroment: ${process.env.NODE_ENV}`);

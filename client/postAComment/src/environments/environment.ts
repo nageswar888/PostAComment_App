@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
+/*
   API_ROOT: 'https://nag-pac-server.herokuapp.com/',
+*/
+  API_ROOT: 'http://localhost:3333/',
 
 };
 

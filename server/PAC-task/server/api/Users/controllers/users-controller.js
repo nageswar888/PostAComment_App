@@ -2,6 +2,7 @@ import {usersDao} from '../dao/users-dao';
 
 export class usersController {
   static getAll(req, res) {
+    console.log("namaste")
     usersDao.getAll()
       .then(uses => res.status(200).json(uses))
       .catch(error => res.status(400).json(error));
@@ -24,6 +25,7 @@ export class usersController {
 
   static getByEmail(req, res) {
     let paramet = req.params.id
+    console.log(paramet)
     usersDao.getByEmail(paramet)
       .then(uses => res.status(200).json(uses))
       .catch(error => res.status(400).json(error));
