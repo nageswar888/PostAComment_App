@@ -44,3 +44,8 @@ a {
 .color{
   background: #e9ecef;
 }
+
+#warning{
+  padding-left: 25%;
+  color: red;
+}

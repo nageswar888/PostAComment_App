@@ -46,8 +46,13 @@ export class usersDao {
   static getByEmail(paramet) {
     console.log("////////////",paramet)
     return new Promise((resolve, reject) => {
-      models.Users.findAll({where: {email: paramet}})
+      models.Users.findAndCountAll({where: {email: paramet}})
         .then(users => {
+          if(users.count == 0){
+            users.rows = "0"
+            resolve(users)
+          }
+          else
           resolve(users);
         })
         .catch(error => {

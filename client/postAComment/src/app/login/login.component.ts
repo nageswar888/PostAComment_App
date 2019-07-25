@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   private users: any;
+  public error = false
 
   constructor(    private route:Router,
                   private formBuilder: FormBuilder,
@@ -44,17 +45,20 @@ export class LoginComponent implements OnInit {
   validation(formdata) {
     let email = formdata.email
     this.registration.get_user_email(email).subscribe((responce) => {
-        this.users = responce
+        this.users = responce.rows
+      console.log(this.users)
         this.localstorage.setItem('user',  this.users).subscribe(() => {});
 
-        if (this.users) {
+        if (this.users != 0) {
           //console.log("-------------",this.users[0].email,"---",this.users[0].password)
+          console.log(this.users)
           if ((formdata.email == this.users[0].email) && (formdata.password == this.users[0].password)) {
             this.route.navigate(['/posts'])
           }
-          else {
-            alert("failed")
-          }
+        }
+        else{
+         // alert("failed")
+          this.error = true
         }
       }, () => {
       },
