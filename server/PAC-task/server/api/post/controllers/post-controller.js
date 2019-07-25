@@ -4,9 +4,7 @@ export class postController {
 
   static getAll(req, res) {
     //console.log(req)
-    let d = req.query.columnName
-    console.log("------------------hello",d)
-    postDao.getAll( req.query.pageNo,req.query.itemsPerPage,req.query.Search,req.query.columnName)
+    postDao.getAll( req.query.pageNo,req.query.itemsPerPage,req.query.post,req.query.user,req.query.title)
       .then(post => res.status(200).json(post))
       .catch(error => res.status(400).json(error));
   }

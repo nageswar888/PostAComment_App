@@ -25,10 +25,12 @@ export class PostsComponent implements OnInit {
   public page: any
   public pageno: any=1;
 
+  Search: any = {post: '', user: '', title: ''};
+
   public SearchByPost: any = ''
   public SearchByUser: any = ''
   public SearchByTitle: any = ''
-  public Search: any = '';
+
   public columnName: any = 'undefined';
   public alert: any = false
   public loggedUser: any;
@@ -60,8 +62,9 @@ export class PostsComponent implements OnInit {
     this.page={
       pageNo:this.pageno,
       itemsPerPage:this.itemsPPage,
-      Search: this.Search,
-      columnName: this.columnName
+      post: this.Search.post,
+      user: this.Search.user,
+      title: this.Search.title,
     };
     this.service.getPost( this.page).subscribe((response) => {
       this.postings = response.rows;
@@ -76,8 +79,9 @@ export class PostsComponent implements OnInit {
     this.page={
       pageNo:this.pageno,
       itemsPerPage:this.itemsPPage,
-      Search: this.Search,
-      columnName: this.columnName
+      post: this.Search.post,
+      user: this.Search.user,
+      title: this.Search.title,
     };
     this.service.getPost(this.page).subscribe(response =>{
       this.postings = response.rows;
@@ -115,7 +119,7 @@ export class PostsComponent implements OnInit {
     //console.log(value)
   }
 
-  search(value){
+  /*search(value){
     if(value=="user"){
       this.Search = this.SearchByUser
       this.columnName = 'postedBy'
@@ -131,9 +135,9 @@ export class PostsComponent implements OnInit {
       this.columnName = 'text'
       this.searchByPost()
     }
-  }
+  }*/
 
-  searchByUser(){
+  /*searchByUser(){
     this.page={
       pageNo:this.pageno,
       itemsPerPage:this.itemsPPage,
@@ -145,9 +149,9 @@ export class PostsComponent implements OnInit {
       this.total = response.count
 
     })
-  }
+  }*/
 
-  searchByTitle(){
+  /*searchByTitle(){
     this.page={
       pageNo:this.pageno,
       itemsPerPage:this.itemsPPage,
@@ -160,9 +164,9 @@ export class PostsComponent implements OnInit {
       this.total = response.count
 
     })
-  }
+  }*/
 
-  searchByPost(){
+  /*searchByPost(){
     this.page={
       pageNo:this.pageno,
       itemsPerPage:this.itemsPPage,
@@ -174,7 +178,7 @@ export class PostsComponent implements OnInit {
       this.total = response.count
 
     })
-  }
+  }*/
   navigateToProfile(){
     this.Routes.navigate(['/profile'])
   }

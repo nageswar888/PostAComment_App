@@ -19,21 +19,20 @@ export class RegistrationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router:Router,
     private Registration:RegistrationService,
-
   ) { }
 
   ngOnInit() {
 
     this.registerForm = this.formBuilder.group({
       firstName: [null, [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]], //if we put double quotes then / is not required
-      lastName: ['koppula', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
-      phone: ['9951506361', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
-      email: ['knageswar888@gmail.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
-      password: ['nag007', [Validators.required, Validators.minLength(6)]],
+      lastName: [null, [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
+      phone: [null, [Validators.required, Validators.pattern("^[0-9]{10}$")]],
+      email: [null, [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  get f() { return this.registerForm.controls; }
+  get f() { return this.registerForm.controls;}
 
   submit(data) {
     this.submitted = true;

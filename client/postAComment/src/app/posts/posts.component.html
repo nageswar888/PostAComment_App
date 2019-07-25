@@ -28,9 +28,9 @@
   <div class="row">
     <div class="col-md-2">
       <br><div id="filter"><b>Filters</b></div>
-      <div><input type="text" aria-label="Search" [(ngModel)]="SearchByPost" (input)="search('post')" placeholder=" search by post"></div><br>
-      <div><input type="text" aria-label="Search" [(ngModel)]="SearchByUser"  (input)="search('user')" placeholder=" search by user"></div><br>
-      <div><input type="text" aria-label="Search" [(ngModel)]="SearchByTitle" (input)="search('title')" placeholder=" search by title"></div><br>
+      <div>Post<input type="text" aria-label="Search" [(ngModel)]="Search.post" (input)="getpost()" placeholder=" search by post"></div><br>
+      <div>User<input type="text" aria-label="Search" [(ngModel)]="Search.user"  (input)="getpost()" placeholder=" search by user"></div><br>
+      <div>Title<input type="text" aria-label="Search" [(ngModel)]="Search.title" (input)="getpost()" placeholder=" search by title"></div><br>
       <!--
             <div><input type="date" aria-label="Search" [(ngModel)]="Search" (input)="search()" placeholder=" search by date"></div>
       -->

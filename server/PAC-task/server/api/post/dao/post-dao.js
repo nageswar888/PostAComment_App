@@ -6,7 +6,7 @@ const Op = Sequelize.Op
 
 export class postDao {
 
-  static getAll(pageData,limit,search,column) {
+  /*static getAll(pageData,limit,search,column) {
     let columns
     console.log("in dao",column)
     console.log("in dao limit ",limit)
@@ -44,6 +44,37 @@ export class postDao {
           }).catch(error=>{
           reject(error);
         })
+    })
+  }
+*/
+
+
+  static getAll(pageData,limit,post,user,title) {
+    return new Promise((resolve, reject) => {
+
+            let page = pageData;      // page number
+            let offset = limit * (page - 1);
+
+
+console.log("-------->",pageData,limit,post,user,title)
+console.log("--------------->dao")
+            models.Post.findAndCountAll({
+              where:{
+                text: {[Op.iLike]: '%' + post + '%'},
+                postedBy: {[Op.iLike]: '%' + user + '%'},
+                title: {[Op.iLike]: '%' + title + '%'},
+              },
+              limit: limit,
+              offset: offset,
+              order: [
+                ['createdAt', 'DESC']
+              ]
+            }).then(result =>{
+              resolve(result);
+            }).catch(err =>{
+                reject(err);
+              });
+
     })
   }
 
