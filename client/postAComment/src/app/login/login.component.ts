@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         if (this.users) {
           //console.log("-------------",this.users[0].email,"---",this.users[0].password)
           if ((formdata.email == this.users[0].email) && (formdata.password == this.users[0].password)) {
-            this.route.navigate(['/posts', responce])
+            this.route.navigate(['/posts'])
           }
           else {
             alert("failed")
