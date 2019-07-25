@@ -35,3 +35,17 @@ pagination-controls:focus{
   box-shadow: none !important;
 
 }
+
+.cardd {
+  width: 400px;
+}
+
+.login_btn{
+  color: white;
+  background-color: #74a29d;
+  width: 100px;
+}
+
+.login_btn:focus {
+  box-shadow: none !important
+}

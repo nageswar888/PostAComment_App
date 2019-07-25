@@ -109,10 +109,5 @@ export class CommentsLikesComponent implements OnInit {
     () =>{ this.comments.push(data)});
   }
 
-  clearingForm(){
-    this.complexForm.reset()
-  }
-
-
 }
 

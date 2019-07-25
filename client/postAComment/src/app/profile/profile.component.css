@@ -1,8 +1,11 @@
 th{
-  color: darkkhaki;
+  color: sienna;
 }
 
 table{
   width: 40%;
 }
 
+td,th{
+  padding: 10px;
+}

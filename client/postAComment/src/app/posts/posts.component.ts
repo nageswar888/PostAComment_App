@@ -119,66 +119,7 @@ export class PostsComponent implements OnInit {
     //console.log(value)
   }
 
-  /*search(value){
-    if(value=="user"){
-      this.Search = this.SearchByUser
-      this.columnName = 'postedBy'
-      this.searchByUser()
-    }
-    else if(value=="title"){
-      this.Search = this.SearchByTitle
-      this.columnName = 'title'
-      this.searchByTitle()
-    }
-    else if(value=="post"){
-      this.Search = this.SearchByPost
-      this.columnName = 'text'
-      this.searchByPost()
-    }
-  }*/
 
-  /*searchByUser(){
-    this.page={
-      pageNo:this.pageno,
-      itemsPerPage:this.itemsPPage,
-      Search: this.Search,
-      columnName : this.columnName
-    };
-    this.service.getPost(this.page).subscribe(response =>{
-      this.postings = response.rows;
-      this.total = response.count
-
-    })
-  }*/
-
-  /*searchByTitle(){
-    this.page={
-      pageNo:this.pageno,
-      itemsPerPage:this.itemsPPage,
-      Search: this.Search,
-      columnName : this.columnName
-
-    };
-    this.service.getPost(this.page).subscribe(response =>{
-      this.postings = response.rows;
-      this.total = response.count
-
-    })
-  }*/
-
-  /*searchByPost(){
-    this.page={
-      pageNo:this.pageno,
-      itemsPerPage:this.itemsPPage,
-      Search: this.Search,
-      columnName : this.columnName
-    };
-    this.service.getPost(this.page).subscribe(response =>{
-      this.postings = response.rows;
-      this.total = response.count
-
-    })
-  }*/
   navigateToProfile(){
     this.Routes.navigate(['/profile'])
   }
@@ -187,8 +128,8 @@ export class PostsComponent implements OnInit {
     this.Routes.navigate(['/login'])
   }
 
-  clearingForm(){
+  /*clearingForm(){
     this.complexForm.reset()
-  }
+  }*/
 
 }

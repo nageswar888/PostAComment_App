@@ -43,8 +43,7 @@
               </div>
             </div>
 
-            <form [formGroup]="complexForm" (ngSubmit)="submit(complexForm.value)">
-              <div class="form-group">
+             <!-- <div class="form-group">
                 <input type="text" formControlName="commentedBy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.commentedBy.errors }" placeholder="User"/>
                 <div *ngIf="submitted && !!f.commentedBy.errors" class="invalid-feedback">
                   <div *ngIf="!!f.commentedBy.errors.required">User is required</div>
@@ -61,8 +60,40 @@
               </div>
               <button type="submit" class="btn btn-primary">Add</button>
             </form>
-          </div>
-          <!-- Modal footer -->
+          </div>-->
+              <div class="container">
+                <div class="d-flex justify-content-center h-100">
+                  <div class="cardStyles">
+                    <div class="card cardd">
+                      <div class="card-body">
+                        <form [formGroup]="complexForm" (ngSubmit)="submit(complexForm.value)">
+                          <div class="form-group">
+                            <input type="text" formControlName="commentedBy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.commentedBy.errors }" placeholder="User"/>
+                            <div *ngIf="submitted && !!f.commentedBy.errors" class="invalid-feedback">
+                              <div *ngIf="!!f.commentedBy.errors.required">User is required</div>
+                              <div *ngIf="!!f.commentedBy.errors.pattern">User must be valid</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <textarea type="text" formControlName="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.text.errors }" placeholder="Enter comment"></textarea>
+                            <div *ngIf="submitted && !!f.text.errors" class="invalid-feedback">
+                              <div *ngIf="!!f.text.errors.required">text is required</div>
+                              <div *ngIf="!!f.text.errors.pattern">text is not valid</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <input type="submit" value="Add" class="btn float-right login_btn">
+                          </div><br><br/>
+                        </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modal footer -->
           <div class="modal-footer">
             <!--
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close modal</button>

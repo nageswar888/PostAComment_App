@@ -1,32 +1,10 @@
-/*
-input{
-  width: 30%;
-}
-*/
+
 .card {
   margin-top: 7%;
   margin-bottom: 10%;
   width: 400px;
 }
 
-/*.card-header h3 {
-  color: #24CE9F;
-}*/
-
-
-.input-group-prepend span {
-  width: 50px;
-  background-color: #FFC312;
-  color: black;
-  border: 0px !important;
-}
-
-.remember input {
-  width: 20px;
-  height: 20px;
-  margin-left: 15px;
-  margin-right: 5px;
-}
 .login_btn{
   color: white;
   background-color: #74a29d;
@@ -37,12 +15,3 @@ input{
   box-shadow: none !important
 }
 
-a {
-  color: #24CE9F;
-}
-
-/*
-.color{
-  background: #e9ecef;
-}
-*/

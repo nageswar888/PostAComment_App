@@ -1,6 +1,6 @@
-.card{
+/*.card{
   background: rgba(253,244,212,0.78);
-}
+}*/
 
 h3{
   font-weight: bold;
@@ -72,4 +72,22 @@ h3{
 
 #id1:focus {
   box-shadow: none !important;
+}
+
+.card {
+  width: 400px;
+}
+
+.card-header h3 {
+  color: #24CE9F;
+}
+
+.login_btn{
+  color: white;
+  background-color: #74a29d;
+  width: 100px;
+}
+
+.login_btn:focus {
+  box-shadow: none !important
 }
